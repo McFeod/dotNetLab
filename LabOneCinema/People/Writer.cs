@@ -15,10 +15,12 @@ namespace LabOneCinema.People
         /// <summary>
         /// Работа сценариста - написание сценария (увеличение числа страниц)
         /// </summary>
-        /// <param name="scenario">Сценарий</param>
-        public void DoWork(Scenario scenario)
+        /// <param name="film">Фильм</param>
+        /// <returns>Сценарий</returns>
+        public Scenario DoWork(Film film)
         {
-            scenario.PageCount += (ushort)Random.Next(20, 100);
+            film.Scenario.PageCount += (ushort)Random.Next(20, 100);
+            return film.Scenario;
         }
     }
 }

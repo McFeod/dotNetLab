@@ -46,10 +46,15 @@
     <Compile Include="Artifacts\Artifact.cs" />
     <Compile Include="Artifacts\Film.cs" />
     <Compile Include="Artifacts\Scenario.cs" />
+    <Compile Include="Collections\Examples.cs" />
+    <Compile Include="Collections\Playlist.cs" />
+    <Compile Include="Collections\RandomEnumerator.cs" />
     <Compile Include="Factory\HighBudgetFilmFactory.cs" />
     <Compile Include="Factory\BaseFilmFactory.cs" />
     <Compile Include="Factory\LowBudgetFilmFactory.cs" />
+    <Compile Include="MainHelper.cs" />
     <Compile Include="People\Artist.cs" />
+    <Compile Include="People\Boss.cs" />
     <Compile Include="People\IHiring.cs" />
     <Compile Include="People\IWorking.cs" />
     <Compile Include="People\Person.cs" />
@@ -63,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Artifacts" />
+    <Folder Include="Collections" />
     <Folder Include="Factory" />
     <Folder Include="People" />
   </ItemGroup>

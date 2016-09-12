@@ -50,8 +50,8 @@ namespace LabOneCinema.Artifacts
                                  $"\tДлительность: {Duration} мин.\n" +
                                  $"\tСценарий: {Scenario.PageCount} стр.\n" +
                                  $"\tСценарист: {Writer.Name} (гонорар: {Writer.Salary}$)\n" +
-                                 $"\tРежиссёр: {Producer.Name}(гонорар: {Writer.Salary}$\n" +
+                                 $"\tРежиссёр: {Producer.Name}(гонорар: {Writer.Salary}$)\n" +
                                  $"\tАктёры:\n\t\t" +
-            string.Join("\n\t\t", Artists.Select(i => $"{i.Name} (гонорар: {i.Salary}$"));
+            string.Join("\n\t\t", Artists.Select(i => $"{i.Name} (гонорар: {i.Salary}$)"));
     }
 }

@@ -15,9 +15,10 @@ namespace LabOneCinema.People
         /// Актёр играет в фильме, увеличивая его длительность
         /// </summary>
         /// <param name="film">Фильм</param>
-        public void DoWork(Film film)
+        public Film DoWork(Film film)
         {
             film.Duration += Random.Next(5, 30);
+            return film;
         }
     }
 }

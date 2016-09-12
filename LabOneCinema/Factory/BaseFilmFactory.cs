@@ -28,7 +28,7 @@ namespace LabOneCinema.Factory
             var film = new Film(name, writer, producer);
             // Все работают над созданием фильма
             producer.DoWork(film);
-            writer.DoWork(film.Scenario);
+            writer.DoWork(film);
             foreach (var artistName in artistNames)
             {
                 var artist = new Artist(artistName);

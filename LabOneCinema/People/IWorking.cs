@@ -1,11 +1,13 @@
-﻿namespace LabOneCinema.People
+﻿using LabOneCinema.Artifacts;
+
+namespace LabOneCinema.People
 {
     /// <summary>
     /// Интерфейс работника
     /// </summary>
     /// <typeparam name="T">Тип сущности, над которой ведется работа</typeparam>
-    public interface IWorking<T>
+    public interface IWorking<out T>
     {
-        void DoWork(T artifact);
+        T DoWork(Film film);
     }
 }

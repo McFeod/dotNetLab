@@ -5,7 +5,7 @@ namespace LabOneCinema.People
     /// <summary>
     /// Класс для режиссёра
     /// </summary>
-    public class Producer: Person, IWorking<Film>, IHiring
+    public class Producer: Person, IWorking<Film>, IHiring<Artist>
     {
         /// <summary>
         /// Одновременно режиссёр работает над одним фильмом
@@ -20,9 +20,10 @@ namespace LabOneCinema.People
         /// Режиссёр переключается на работу над заданным фильмом
         /// </summary>
         /// <param name="film">Фильм</param>
-        public void DoWork(Film film)
+        public Film DoWork(Film film)
         {
-            this._currentFilm = film;
+            _currentFilm = film;
+            return film;
         }
 
         /// <summary>

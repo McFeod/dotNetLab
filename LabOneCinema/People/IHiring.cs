@@ -3,8 +3,8 @@
     /// <summary>
     /// Интерфейс, реализующий найм актёров
     /// </summary>
-    public interface IHiring
+    public interface IHiring<in T> where T: Person
     {
-        void Hire(Artist artist, decimal salary);
+        void Hire(T person, decimal salary);
     }
 }
