@@ -1,4 +1,5 @@
 ﻿using System;
+using LabOneCinema.Artifacts;
 using LabOneCinema.Collections;
 using LabOneCinema.Factory;
 
@@ -10,7 +11,7 @@ namespace LabOneCinema
         {
             var factoryLow = new LowBudgetFilmFactory();
             var factoryHigh = new HighBudgetFilmFactory();
-            var playlist = new Playlist()
+            var playlist = new Playlist<Film>()
             {
                 factoryLow.MakeFilm(
                     "Охотники за бургерами",
