@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using LabOneCinema.People;
 
 namespace LabOneCinema.Artifacts
@@ -7,7 +9,7 @@ namespace LabOneCinema.Artifacts
     /// <summary>
     /// Собственно, сам фильм
     /// </summary>
-    public class Film: Artifact
+    public class Film: Artifact, ICloneable
     {
         /// <summary>
         /// Продолжительность фильма
@@ -53,5 +55,15 @@ namespace LabOneCinema.Artifacts
                                  $"\tРежиссёр: {Producer.Name}(гонорар: {Writer.Salary}$)\n" +
                                  $"\tАктёры:\n\t\t" +
             string.Join("\n\t\t", Artists.Select(i => $"{i.Name} (гонорар: {i.Salary}$)"));
+
+        public object Clone()
+        {
+            var result = new Film(this.Name, this.Writer, this.Producer);
+            result.Artists.AddRange(this.Artists);
+            result.Duration = this.Duration;
+            result.Scenario.PageCount = this.Scenario.PageCount;
+            result.Scenario.Name = this.Scenario.Name;
+            return result;
+        }
     }
 }
