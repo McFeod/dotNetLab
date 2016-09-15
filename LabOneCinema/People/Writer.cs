@@ -6,7 +6,7 @@ namespace LabOneCinema.People
     /// <summary>
     /// Класс для сценариста
     /// </summary>
-    public class Writer: Person, IWorking<Scenario>
+    public class Writer: Person, IWorking<Scenario>, IStartingFromScratch<Scenario>
     {
         public Writer(string name) : base(name)
         {
@@ -21,6 +21,15 @@ namespace LabOneCinema.People
         {
             film.Scenario.PageCount += (ushort)Random.Next(20, 100);
             return film.Scenario;
+        }
+
+        /// <summary>
+        /// Сценарист может начать писать сценарий заново
+        /// </summary>
+        /// <param name="scenario">Сценарий</param>
+        public void StartFromScratch(out Scenario scenario)
+        {
+            scenario = new Scenario();
         }
     }
 }
