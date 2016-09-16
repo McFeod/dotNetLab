@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using LabOneCinema.Artifacts;
+using LabOneCinema.Delegates;
 
 namespace LabOneCinema.Collections
 {
@@ -11,15 +14,24 @@ namespace LabOneCinema.Collections
     public class Playlist<T> : ICollection<T> where T: Artifact
     {
         private readonly List<T> _films;
+        private readonly bool _isRandom;
 
-        public Playlist()
+        /// <summary>
+        /// Конструктор, позволяющий создавать плейлисты с перемешиванием и без
+        /// </summary>
+        /// <param name="isRandom">Нужен ли случайный порядок элементов</param>
+        public Playlist(bool isRandom=true)
         {
             _films = new List<T>();
+            _isRandom = isRandom;
+
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new RandomEnumerator<T>(_films);
+            if (_isRandom)
+                return new RandomEnumerator<T>(_films);
+            return _films.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -50,6 +62,36 @@ namespace LabOneCinema.Collections
         public bool Remove(T item)
         {
             return _films.Remove(item);
+        }
+
+        /// <summary>
+        /// Метод сортировки коллекции.
+        /// </summary>
+        /// <param name="rule">Делегат, определяющий операцию сравнения элементов</param>
+        public void Sort(ComparsionRule<T> rule)
+        {
+            _films.Sort((first, second) => rule(first, second));
+        }
+
+        /// <summary>
+        /// Подготовка аннотаций к фильмам при помощи внешней функции
+        /// </summary>
+        /// <param name="function">Функция с 1 параметром, применяемая ко всем элементам коллекции</param>
+        /// <returns>Список с результатами применения функции</returns>
+        public List<string> GetAnnotation(Func<T, string> function)
+        {
+            return _films.Select(function).ToList();
+        }
+
+        /// <summary>
+        /// Применение стороннего метода ко всем элементам коллекции
+        /// </summary>
+        public void ApplyAction(Action<T> action)
+        {
+            foreach (var film in _films)
+            {
+                action(film);
+            }
         }
 
         public int Count => _films.Count;

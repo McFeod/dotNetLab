@@ -49,6 +49,9 @@
     <Compile Include="Collections\Examples.cs" />
     <Compile Include="Collections\Playlist.cs" />
     <Compile Include="Collections\RandomEnumerator.cs" />
+    <Compile Include="Delegates\CompareDelegate.cs" />
+    <Compile Include="Delegates\FilmActions.cs" />
+    <Compile Include="Delegates\FilmFunctions.cs" />
     <Compile Include="Factory\HighBudgetFilmFactory.cs" />
     <Compile Include="Factory\BaseFilmFactory.cs" />
     <Compile Include="Factory\LowBudgetFilmFactory.cs" />
@@ -70,6 +73,7 @@
   <ItemGroup>
     <Folder Include="Artifacts" />
     <Folder Include="Collections" />
+    <Folder Include="Delegates" />
     <Folder Include="Factory" />
     <Folder Include="People" />
   </ItemGroup>

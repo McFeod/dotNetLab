@@ -1,6 +1,7 @@
 ﻿using System;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Collections;
+using LabOneCinema.Delegates;
 using LabOneCinema.Factory;
 
 namespace LabOneCinema
@@ -11,7 +12,7 @@ namespace LabOneCinema
         {
             var factoryLow = new LowBudgetFilmFactory();
             var factoryHigh = new HighBudgetFilmFactory();
-            var playlist = new Playlist<Film>()
+            var playlist = new Playlist<Film>(false)
             {
                 factoryLow.MakeFilm(
                     "Охотники за бургерами",
@@ -38,29 +39,37 @@ namespace LabOneCinema
                 "Захаров Евграф",
                 "Ушаков Роман",
                 "Дмитриева Каролина",
-                "Сорокина Дина",
                 "Ильин Бернар"
             );
             playlist.Add(anotherFilm);
 
-            // проверка случаности порядка воспроизведения в плейлисте
 
-            for (var i = 0; i < 10; ++i)
-            {
-                PrintProperties(playlist, "Name", "\t|\t");
-            }
+            /* Применение сортировок*/
 
-            // проверим *-вариантности
+            playlist.Sort(FilmComparsion.DurationOrder);
+            PrintProperties(playlist, "Name", "\t|\t");
+            Console.WriteLine("===============================================================");
 
-            Console.WriteLine("До работы:");
-            Console.WriteLine(anotherFilm.Credits);
-            foreach (var i in anotherFilm.GetTeam())
-            {
-                i.DoWork(anotherFilm);
-            }
+            playlist.Sort(FilmComparsion.ArtistCountOrder);
+            PrintProperties(playlist, "Name", "\t|\t");
+            Console.WriteLine("===============================================================");
 
-            Console.WriteLine("После:");
-            Console.WriteLine(anotherFilm.Credits);
+            playlist.Sort(FilmComparsion.ProducerNameOrder);
+            PrintProperties(playlist, "Name", "\t|\t");
+            Console.WriteLine("===============================================================");
+
+
+            /* Применение Action */
+
+            playlist.ApplyAction(FilmActions.PrintBudget);
+
+
+            /* Применение Func */
+
+            var crossover = playlist.GetAnnotation(FilmFunctions.RandomArtist);
+
+            Console.WriteLine("Публика с нетерпением ждёт фильм, в котором сыграют " +
+                              string.Join(", ", crossover));
         }
     }
 }
