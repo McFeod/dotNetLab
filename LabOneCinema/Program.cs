@@ -61,12 +61,12 @@ namespace LabOneCinema
 
             /* Применение Action */
 
-            playlist.ApplyAction(FilmActions.PrintBudget);
+            playlist.ApplyAction(PrintBudget);
 
 
             /* Применение Func */
 
-            var crossover = playlist.GetAnnotation(FilmFunctions.RandomArtist);
+            var crossover = playlist.GetAnnotation(RandomArtist);
 
             Console.WriteLine("Публика с нетерпением ждёт фильм, в котором сыграют " +
                               string.Join(", ", crossover));
