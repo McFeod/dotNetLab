@@ -50,11 +50,13 @@
     <Compile Include="Collections\Playlist.cs" />
     <Compile Include="Collections\RandomEnumerator.cs" />
     <Compile Include="Delegates\CompareDelegate.cs" />
-    <Compile Include="Delegates\FilmActions.cs" />
-    <Compile Include="Delegates\FilmFunctions.cs" />
     <Compile Include="Factory\HighBudgetFilmFactory.cs" />
     <Compile Include="Factory\BaseFilmFactory.cs" />
     <Compile Include="Factory\LowBudgetFilmFactory.cs" />
+    <Compile Include="Logging\HiringEventArgs.cs" />
+    <Compile Include="Logging\LogEventArgs.cs" />
+    <Compile Include="Logging\FilmLogger.cs" />
+    <Compile Include="Logging\WorkerEventArgs.cs" />
     <Compile Include="MainHelper.cs" />
     <Compile Include="People\Artist.cs" />
     <Compile Include="People\Boss.cs" />

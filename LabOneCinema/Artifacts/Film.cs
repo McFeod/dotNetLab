@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using LabOneCinema.People;
 
 namespace LabOneCinema.Artifacts
@@ -11,10 +10,20 @@ namespace LabOneCinema.Artifacts
     /// </summary>
     public class Film: Artifact, ICloneable
     {
+        public event EventHandler OnGrow = (sender, pseudoArgs) => { };
+
         /// <summary>
         /// Продолжительность фильма
         /// </summary>
-        public double Duration { get; set; }
+        private double _duration;
+        public double Duration {
+            get { return _duration; }
+            set
+            {
+                _duration = value;
+                OnGrow(this, PseudoArgs);
+            }
+        }
 
         /// <summary>
         /// Сценарий фильма
@@ -42,7 +51,7 @@ namespace LabOneCinema.Artifacts
             Writer = writer;
             Producer = producer;
             Artists = new List<Artist>();
-            Scenario = new Scenario();
+            Scenario = new Scenario(){Name = $"Сценарий к фильму \"{Name}\""};
         }
 
         /// <summary>

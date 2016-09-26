@@ -1,4 +1,5 @@
 ﻿using LabOneCinema.Artifacts;
+using LabOneCinema.Logging;
 
 namespace LabOneCinema.Factory
 {
@@ -9,7 +10,7 @@ namespace LabOneCinema.Factory
     {
         protected override double Factor { get; }
 
-        public LowBudgetFilmFactory()
+        public LowBudgetFilmFactory(FilmLogger logger = null): base(logger)
         {
             Factor = 1000;
         }

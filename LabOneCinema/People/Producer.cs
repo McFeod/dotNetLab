@@ -1,4 +1,6 @@
-﻿using LabOneCinema.Artifacts;
+﻿using System;
+using LabOneCinema.Artifacts;
+using LabOneCinema.Logging;
 
 namespace LabOneCinema.People
 {
@@ -12,6 +14,10 @@ namespace LabOneCinema.People
         /// </summary>
         private Film _currentFilm;
 
+        public event EventHandler<WorkerEventArgs> OnWork = (sender, args) => {};
+        public event EventHandler<HiringEventArgs> OnHire = (sender, args) => {};
+
+
         public Producer(string name) : base(name)
         {
         }
@@ -23,6 +29,7 @@ namespace LabOneCinema.People
         public Film DoWork(Film film)
         {
             _currentFilm = film;
+            OnWork(this, new WorkerEventArgs(){Type = ArtifactType.FilmItself});
             return film;
         }
 
@@ -35,7 +42,7 @@ namespace LabOneCinema.People
         {
             artist.Salary = Salary;
             _currentFilm.Artists.Add(artist);
-
+            OnHire(this, new HiringEventArgs() {Hired = artist});
         }
     }
 

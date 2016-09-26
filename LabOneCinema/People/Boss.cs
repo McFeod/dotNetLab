@@ -1,4 +1,7 @@
-﻿namespace LabOneCinema.People
+﻿using System;
+using LabOneCinema.Logging;
+
+namespace LabOneCinema.People
 {
     public class Boss : Person, IHiring<Person>
     {
@@ -10,5 +13,7 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public event EventHandler<HiringEventArgs> OnHire;
     }
 }

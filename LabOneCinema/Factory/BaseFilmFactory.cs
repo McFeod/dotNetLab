@@ -1,4 +1,5 @@
 ﻿using LabOneCinema.Artifacts;
+using LabOneCinema.Logging;
 using LabOneCinema.People;
 
 namespace LabOneCinema.Factory
@@ -13,6 +14,13 @@ namespace LabOneCinema.Factory
         /// </summary>
         protected abstract double Factor { get; }
 
+        protected FilmLogger Logger;
+
+        protected BaseFilmFactory(FilmLogger logger = null)
+        {
+            Logger = logger;
+        }
+
         /// <summary>
         /// Создание фильма
         /// </summary>
@@ -26,6 +34,7 @@ namespace LabOneCinema.Factory
             var producer = new Producer(producerName) {Salary = (decimal) (5 * Factor)};
             var writer = new Writer(writerName) {Salary = (decimal) (2 * Factor)};
             var film = new Film(name, writer, producer);
+            Logger?.SubscribeOnEvents(film);
             // Все работают над созданием фильма
             producer.DoWork(film);
             writer.DoWork(film);

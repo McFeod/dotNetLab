@@ -1,4 +1,6 @@
-﻿using LabOneCinema.Artifacts;
+﻿using System;
+using LabOneCinema.Artifacts;
+using LabOneCinema.Logging;
 
 namespace LabOneCinema.People
 {
@@ -9,5 +11,6 @@ namespace LabOneCinema.People
     public interface IWorking<out T>
     {
         T DoWork(Film film);
+        event EventHandler<WorkerEventArgs> OnWork;
     }
 }

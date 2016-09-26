@@ -1,5 +1,6 @@
 ﻿using System;
 using LabOneCinema.Artifacts;
+using LabOneCinema.Logging;
 
 namespace LabOneCinema.People
 {
@@ -8,6 +9,8 @@ namespace LabOneCinema.People
     /// </summary>
     public class Writer: Person, IWorking<Scenario>, IStartingFromScratch<Scenario>
     {
+        public event EventHandler<WorkerEventArgs> OnWork = (sender, args) => {};
+
         public Writer(string name) : base(name)
         {
         }
@@ -19,7 +22,9 @@ namespace LabOneCinema.People
         /// <returns>Сценарий</returns>
         public Scenario DoWork(Film film)
         {
-            film.Scenario.PageCount += (ushort)Random.Next(20, 100);
+            var extraPages = Random.Next(20, 100);
+            film.Scenario.PageCount += (ushort) extraPages;
+            OnWork(this, new WorkerEventArgs(){Type = ArtifactType.ScenarioLength, Measurement = extraPages});
             return film.Scenario;
         }
 

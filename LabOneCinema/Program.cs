@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Collections;
 using LabOneCinema.Delegates;
 using LabOneCinema.Factory;
+using LabOneCinema.Logging;
 
 namespace LabOneCinema
 {
@@ -10,8 +12,10 @@ namespace LabOneCinema
     {
         private static void Main(string[] args)
         {
-            var factoryLow = new LowBudgetFilmFactory();
-            var factoryHigh = new HighBudgetFilmFactory();
+            var logger = new FilmLogger(Path.Combine("..", "..", "films.log"));
+            logger.OnLog += PrintToLog;
+            var factoryLow = new LowBudgetFilmFactory(logger);
+            var factoryHigh = new HighBudgetFilmFactory(logger);
             var playlist = new Playlist<Film>(false)
             {
                 factoryLow.MakeFilm(
@@ -43,33 +47,6 @@ namespace LabOneCinema
             );
             playlist.Add(anotherFilm);
 
-
-            /* Применение сортировок*/
-
-            playlist.Sort(FilmComparsion.DurationOrder);
-            PrintProperties(playlist, "Name", "\t|\t");
-            Console.WriteLine("===============================================================");
-
-            playlist.Sort(FilmComparsion.ArtistCountOrder);
-            PrintProperties(playlist, "Name", "\t|\t");
-            Console.WriteLine("===============================================================");
-
-            playlist.Sort(FilmComparsion.ProducerNameOrder);
-            PrintProperties(playlist, "Name", "\t|\t");
-            Console.WriteLine("===============================================================");
-
-
-            /* Применение Action */
-
-            playlist.ApplyAction(PrintBudget);
-
-
-            /* Применение Func */
-
-            var crossover = playlist.GetAnnotation(RandomArtist);
-
-            Console.WriteLine("Публика с нетерпением ждёт фильм, в котором сыграют " +
-                              string.Join(", ", crossover));
         }
     }
 }
