@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Collections;
-using LabOneCinema.Delegates;
 using LabOneCinema.Factory;
 using LabOneCinema.Logging;
 
