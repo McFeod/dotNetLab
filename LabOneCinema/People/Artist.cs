@@ -9,8 +9,11 @@ namespace LabOneCinema.People
     /// </summary>
     public class Artist: Person, IWorking<Film>
     {
-
+        /// <summary>
+        /// Событие, возникающее при игре актера в фильме
+        ///</summary>
         public event EventHandler<WorkerEventArgs> OnWork = (sender, value) => {};
+
         public Artist(string name) : base(name)
         {
         }

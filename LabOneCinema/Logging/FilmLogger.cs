@@ -4,6 +4,9 @@ using LabOneCinema.Artifacts;
 
 namespace LabOneCinema.Logging
 {
+    /// <summary>
+    /// Типы логируемых событий
+    /// </summary>
     public enum EventType
     {
         WriterWorks,
@@ -14,8 +17,14 @@ namespace LabOneCinema.Logging
         ScenarioGrows
     }
 
+    /// <summary>
+    /// Класс, собирающий события от разных частей программы в одно событие OnLog
+    /// </summary>
     public class FilmLogger
     {
+        /// <summary>
+        /// Событие, возникающее при перехвате других событий и служащее для логирования
+        /// </summary>
         public event EventHandler<LogEventArgs> OnLog = (sender, args) => {};
 
         private readonly bool _toFile;

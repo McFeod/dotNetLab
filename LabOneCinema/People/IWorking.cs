@@ -11,6 +11,10 @@ namespace LabOneCinema.People
     public interface IWorking<out T>
     {
         T DoWork(Film film);
+
+        /// <summary>
+        /// Событие, возникающее при выполнении работы сотрудником
+        ///</summary>
         event EventHandler<WorkerEventArgs> OnWork;
     }
 }

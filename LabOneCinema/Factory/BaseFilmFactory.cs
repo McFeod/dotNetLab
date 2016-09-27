@@ -14,6 +14,9 @@ namespace LabOneCinema.Factory
         /// </summary>
         protected abstract double Factor { get; }
 
+        /// <summary>
+        /// Логгер для фабрики. Равен null, если логирование не нужно
+        /// </summary>
         protected FilmLogger Logger;
 
         protected BaseFilmFactory(FilmLogger logger = null)

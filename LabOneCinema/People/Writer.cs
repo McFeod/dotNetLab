@@ -9,6 +9,9 @@ namespace LabOneCinema.People
     /// </summary>
     public class Writer: Person, IWorking<Scenario>, IStartingFromScratch<Scenario>
     {
+        /// <summary>
+        /// Событие, возникающее при написании сценария
+        /// </summary>
         public event EventHandler<WorkerEventArgs> OnWork = (sender, args) => {};
 
         public Writer(string name) : base(name)

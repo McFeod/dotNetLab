@@ -9,6 +9,10 @@ namespace LabOneCinema.People
     public interface IHiring<in T> where T: Person
     {
         void Hire(T person, decimal salary);
+
+        /// <summary>
+        /// Событие, возникающее при найме сотрудника
+        ///</summary>
         event EventHandler<HiringEventArgs> OnHire;
     }
 }

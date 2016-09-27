@@ -14,7 +14,14 @@ namespace LabOneCinema.People
         /// </summary>
         private Film _currentFilm;
 
+        /// <summary>
+        /// Событие, возникающее при работе режиссёра над фильмом
+        /// </summary>
         public event EventHandler<WorkerEventArgs> OnWork = (sender, args) => {};
+
+        /// <summary>
+        /// Событие, возникающее при найме актёра
+        /// </summary>
         public event EventHandler<HiringEventArgs> OnHire = (sender, args) => {};
 
 

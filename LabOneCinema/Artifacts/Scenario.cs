@@ -7,7 +7,11 @@ namespace LabOneCinema.Artifacts
     /// </summary>
     public class Scenario: Artifact
     {
+        /// <summary>
+        /// Событие, вызываемое при изменении числа страниц сценария
+        /// </summary>
         public event EventHandler OnGrow = (sender, pseudoArgs) => {};
+
         /// <summary>
         /// Число страниц сценария
         /// </summary>

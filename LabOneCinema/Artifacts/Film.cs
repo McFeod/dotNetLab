@@ -10,6 +10,9 @@ namespace LabOneCinema.Artifacts
     /// </summary>
     public class Film: Artifact, ICloneable
     {
+        /// <summary>
+        /// Событие, вызываемое при увеличении длины фильма
+        /// </summary>
         public event EventHandler OnGrow = (sender, pseudoArgs) => { };
 
         /// <summary>
