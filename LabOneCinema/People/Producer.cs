@@ -1,5 +1,6 @@
 ﻿using System;
 using LabOneCinema.Artifacts;
+using LabOneCinema.Exceptions;
 using LabOneCinema.Logging;
 
 namespace LabOneCinema.People
@@ -47,7 +48,9 @@ namespace LabOneCinema.People
         /// <param name="salary">Гонорар актёра</param>
         public void Hire(Artist artist, decimal salary)
         {
-            artist.Salary = Salary;
+            if (_currentFilm == null)
+                throw new HiringOrderException();
+            artist.Salary = salary;
             _currentFilm.Artists.Add(artist);
             OnHire(this, new HiringEventArgs() {Hired = artist});
         }

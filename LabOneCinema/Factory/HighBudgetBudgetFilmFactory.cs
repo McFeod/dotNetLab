@@ -6,11 +6,11 @@ namespace LabOneCinema.Factory
     /// <summary>
     /// Фабрика для создания высокобюджетных фильмов
     /// </summary>
-    public class HighBudgetFilmFactory: BaseFilmFactory
+    public class HighBudgetBudgetFilmFactory: BaseBudgetFilmFactory
     {
         protected override double Factor { get; }
 
-        public HighBudgetFilmFactory(FilmLogger logger = null): base(logger)
+        public HighBudgetBudgetFilmFactory(FilmLogger logger = null): base(logger)
         {
             Factor = 50000;
         }

@@ -50,12 +50,17 @@
     <Compile Include="Collections\Playlist.cs" />
     <Compile Include="Collections\RandomEnumerator.cs" />
     <Compile Include="Delegates\CompareDelegate.cs" />
-    <Compile Include="Factory\HighBudgetFilmFactory.cs" />
+    <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Factory\BaseFilmFactory.cs" />
-    <Compile Include="Factory\LowBudgetFilmFactory.cs" />
+    <Compile Include="Factory\ConfigFilmFactory.cs" />
+    <Compile Include="Factory\HighBudgetBudgetFilmFactory.cs" />
+    <Compile Include="Factory\BaseBudgetFilmFactory.cs" />
+    <Compile Include="Factory\LowBudgetBudgetFilmFactory.cs" />
+    <Compile Include="Logging\ExceptionLogger.cs" />
     <Compile Include="Logging\HiringEventArgs.cs" />
     <Compile Include="Logging\LogEventArgs.cs" />
     <Compile Include="Logging\FilmLogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\WorkerEventArgs.cs" />
     <Compile Include="MainHelper.cs" />
     <Compile Include="People\Artist.cs" />
@@ -76,11 +81,14 @@
     <Folder Include="Artifacts" />
     <Folder Include="Collections" />
     <Folder Include="Delegates" />
-    <Folder Include="Factory" />
     <Folder Include="People" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="Assets\film_1.csv" />
+    <Content Include="Assets\film_error_1.csv" />
+    <Content Include="Assets\film_error_2.csv" />
+    <Content Include="Assets\film_error_3.csv" />
     <Content Include="description.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
-﻿using System.IO;
-using LabOneCinema.Artifacts;
-using LabOneCinema.Collections;
+﻿using System;
+using System.IO;
+using LabOneCinema.Exceptions;
 using LabOneCinema.Factory;
 using LabOneCinema.Logging;
 
@@ -12,39 +12,24 @@ namespace LabOneCinema
         {
             var logger = new FilmLogger(Path.Combine("..", "..", "films.log"));
             logger.OnLog += PrintToLog;
-            var factoryLow = new LowBudgetFilmFactory(logger);
-            var factoryHigh = new HighBudgetFilmFactory(logger);
-            var playlist = new Playlist<Film>(false)
-            {
-                factoryLow.MakeFilm(
-                    "Охотники за бургерами",
-                    "Чапко Бронислава",
-                    "Веселков Григорий",
-                    "Петров Аристарх",
-                    "Литвина Ева",
-                    "Андронова Амина"
-                ),
-                factoryHigh.MakeFilm(
-                    "Компиляция",
-                    "Ушаков Виталий",
-                    "Шершова Луиза",
-                    "Соколов Вышеслав",
-                    "Шалдыбин Степан",
-                    "Наумова Юлия",
-                    "Лебедев Митофан",
-                    "Прокофьев Фрол",
-                    "Русина Варвара"
-                )
-            };
-            var anotherFilm = factoryLow.MakeFilm(
-                "Ржавчина",
-                "Захаров Евграф",
-                "Ушаков Роман",
-                "Дмитриева Каролина",
-                "Ильин Бернар"
-            );
-            playlist.Add(anotherFilm);
 
+            var exceptionLogger = new ExceptionLogger();
+
+            var factory = new ConfigFilmFactory(logger);
+
+            try
+            {
+                var film = factory.LoadFilm(Path.Combine("..", "..", "Assets", "film_1.csv"));
+                Console.WriteLine(film.Credits);
+            }
+            catch (CustomException exception)
+            {
+                exceptionLogger.HandleCustomException(exception);
+            }
+            catch (Exception exception)
+            {
+                exceptionLogger.HandleSystemException(exception);
+            }
         }
     }
 }

@@ -20,29 +20,19 @@ namespace LabOneCinema.Logging
     /// <summary>
     /// Класс, собирающий события от разных частей программы в одно событие OnLog
     /// </summary>
-    public class FilmLogger
+    public class FilmLogger: Logger
     {
         /// <summary>
         /// Событие, возникающее при перехвате других событий и служащее для логирования
         /// </summary>
         public event EventHandler<LogEventArgs> OnLog = (sender, args) => {};
 
-        private readonly bool _toFile;
-        private readonly string _filename;
-
         /// <summary>
         /// Создание логгера с привязкой к файлу/консоли
         /// </summary>
         /// <param name="path">Путь к файлу. Если пуст/null - вывод пойдёт в консоль</param>
-        public FilmLogger(string path=null)
+        public FilmLogger(string path=null): base(path)
         {
-            _toFile = !string.IsNullOrEmpty(path);
-            if (!_toFile) return;
-            _filename = path;
-            if (!File.Exists(_filename))
-            {
-                File.Create(_filename).Close();
-            }
         }
 
         /// <summary>
@@ -76,7 +66,7 @@ namespace LabOneCinema.Logging
         /// <param name="film">Фильм, с которым связано событие</param>
         private void HandleNested(object obj, EventType type, EventArgs args, Film film)
         {
-            using (var output = (_toFile ? File.AppendText(_filename) : Console.Out))
+            using (var output = GetOutput())
             {
                 OnLog(obj, new LogEventArgs()
                 {
