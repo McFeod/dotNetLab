@@ -76,13 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Classes_lab5.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Artifacts" />
-    <Folder Include="Collections" />
-    <Folder Include="Delegates" />
-    <Folder Include="People" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Assets\film_1.csv" />

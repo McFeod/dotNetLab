@@ -7,7 +7,7 @@ namespace LabOneCinema.Logging
     /// <summary>
     /// Аргументы события OnLog
     /// </summary>
-    public class LogEventArgs
+    public class LogEventArgs: EventArgs
     {
         /// <summary>
         /// Аргументы от события нижнего уровня

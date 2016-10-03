@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LabOneCinema.Artifacts.Artifact" Collapsed="true">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Artifacts\Artifact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Artifacts.Film" Collapsed="true">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAACAAAAABAAAAAAAAAQAAAAAEAQAAEAABI=</HashCode>
+      <FileName>Artifacts\Film.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Scenario" />
+      <Field Name="Writer" />
+      <Field Name="Producer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Artists" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabOneCinema.Artifacts.Scenario" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Artifacts\Scenario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Collections.Playlist&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAABAAAAAADAQAAAQBAQAAAAAAAAEAAAAABBQYAA=</HashCode>
+      <FileName>Collections\Playlist.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="LabOneCinema.Collections.RandomEnumerator&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAAAAACAAAAAABAAAAAAoAAAgAAAAAE=</HashCode>
+      <FileName>Collections\RandomEnumerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabOneCinema.Exceptions.CustomException" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Exceptions.NotEnoughPeopleException" Collapsed="true">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Exceptions.StringFormatException" Collapsed="true">
+    <Position X="11.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Exceptions.NegativeValueException" Collapsed="true">
+    <Position X="14" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Exceptions.HiringOrderException" Collapsed="true">
+    <Position X="7.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\CustomException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Factory.BaseBudgetFilmFactory" Collapsed="true">
+    <Position X="2" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\BaseBudgetFilmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Factory.BaseFilmFactory" Collapsed="true">
+    <Position X="3.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\BaseFilmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Factory.ConfigFilmFactory" Collapsed="true">
+    <Position X="5.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Factory\ConfigFilmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Factory.HighBudgetBudgetFilmFactory" Collapsed="true">
+    <Position X="1" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\HighBudgetBudgetFilmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Factory.LowBudgetBudgetFilmFactory" Collapsed="true">
+    <Position X="3.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\LowBudgetBudgetFilmFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.ExceptionLogger" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\ExceptionLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.FilmLogger" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAAg=</HashCode>
+      <FileName>Logging\FilmLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.HiringEventArgs" Collapsed="true">
+    <Position X="16.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\HiringEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.LogEventArgs" Collapsed="true">
+    <Position X="15" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAIAAAAAAAAAAAAAQAAAAAIAAA=</HashCode>
+      <FileName>Logging\LogEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.Logger" Collapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.Logging.WorkerEventArgs" Collapsed="true">
+    <Position X="13.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAA=</HashCode>
+      <FileName>Logging\WorkerEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.People.Artist" Collapsed="true">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Artist.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabOneCinema.People.Boss" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Boss.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabOneCinema.People.Person" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabOneCinema.People.Producer" Collapsed="true">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAFQAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>People\Producer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LabOneCinema.People.Writer" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Writer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.EventArgs" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="LabOneCinema.People.IHiring&lt;T&gt;" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\IHiring.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabOneCinema.People.IStartingFromScratch&lt;T&gt;" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\IStartingFromScratch.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LabOneCinema.People.IWorking&lt;T&gt;" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\IWorking.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
