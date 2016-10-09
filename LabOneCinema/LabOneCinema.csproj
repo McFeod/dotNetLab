@@ -46,6 +46,7 @@
     <Compile Include="Artifacts\Artifact.cs" />
     <Compile Include="Artifacts\Film.cs" />
     <Compile Include="Artifacts\Scenario.cs" />
+    <Compile Include="Async\HeapSorter.cs" />
     <Compile Include="Collections\Examples.cs" />
     <Compile Include="Collections\Playlist.cs" />
     <Compile Include="Collections\RandomEnumerator.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Factory\HighBudgetBudgetFilmFactory.cs" />
     <Compile Include="Factory\BaseBudgetFilmFactory.cs" />
     <Compile Include="Factory\LowBudgetBudgetFilmFactory.cs" />
+    <Compile Include="Factory\RandomScenarioFactory.cs" />
     <Compile Include="Logging\ExceptionLogger.cs" />
     <Compile Include="Logging\HiringEventArgs.cs" />
     <Compile Include="Logging\LogEventArgs.cs" />
@@ -78,7 +80,6 @@
     <None Include="App.config" />
     <None Include="Classes_lab5.cd" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Assets\film_1.csv" />

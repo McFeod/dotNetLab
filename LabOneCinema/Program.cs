@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using LabOneCinema.Artifacts;
 using LabOneCinema.Exceptions;
 using LabOneCinema.Factory;
 using LabOneCinema.Logging;
+using LabOneCinema.Async;
+using LabOneCinema.Collections;
 
 namespace LabOneCinema
 {
@@ -10,26 +16,24 @@ namespace LabOneCinema
     {
         private static void Main(string[] args)
         {
-            var logger = new FilmLogger(Path.Combine("..", "..", "films.log"));
-            logger.OnLog += PrintToLog;
-
-            var exceptionLogger = new ExceptionLogger();
-
-            var factory = new ConfigFilmFactory(logger);
-
-            try
+            var scenarioFactory = new RandomScenarioFactory();
+            var collection = new Playlist<Scenario>(false);
+            for (var i = 0; i < 1000; ++i)
             {
-                var film = factory.LoadFilm(Path.Combine("..", "..", "Assets", "film_1.csv"));
-                Console.WriteLine(film.Credits);
+                collection.Add(scenarioFactory.MakeScenario());
             }
-            catch (CustomException exception)
+            var sortingTask = collection.StartAsyncSort(
+                (first, second) => first.PageCount.CompareTo(second.PageCount),
+                (msg, progress) => Console.WriteLine($"{msg}: {progress*100}%"));
+
+            // пока коллекция сортируется, главный поток спамит в stdout
+            while (!sortingTask.IsCompleted)
             {
-                exceptionLogger.HandleCustomException(exception);
+                Thread.Sleep(50);
+                Console.WriteLine("Ready? Ready? Ready? Ready? Ready? Ready? Ready?");
             }
-            catch (Exception exception)
-            {
-                exceptionLogger.HandleSystemException(exception);
-            }
+
+            // Console.WriteLine(string.Join("\n", collection.Select((x) => $"{x.Name}: {x.PageCount}")));
         }
     }
 }

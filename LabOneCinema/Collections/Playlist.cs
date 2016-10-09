@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using LabOneCinema.Artifacts;
+using LabOneCinema.Async;
 using LabOneCinema.Delegates;
 
 namespace LabOneCinema.Collections
@@ -13,7 +15,7 @@ namespace LabOneCinema.Collections
     /// </summary>
     public class Playlist<T> : ICollection<T> where T: Artifact
     {
-        private readonly List<T> _films;
+        private readonly List<T> _items;
         private readonly bool _isRandom;
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace LabOneCinema.Collections
         /// <param name="isRandom">Нужен ли случайный порядок элементов</param>
         public Playlist(bool isRandom=true)
         {
-            _films = new List<T>();
+            _items = new List<T>();
             _isRandom = isRandom;
 
         }
@@ -30,8 +32,8 @@ namespace LabOneCinema.Collections
         public IEnumerator<T> GetEnumerator()
         {
             if (_isRandom)
-                return new RandomEnumerator<T>(_films);
-            return _films.GetEnumerator();
+                return new RandomEnumerator<T>(_items);
+            return _items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -41,27 +43,27 @@ namespace LabOneCinema.Collections
 
         public void Add(T item)
         {
-            _films.Add(item);
+            _items.Add(item);
         }
 
         public void Clear()
         {
-            _films.Clear();
+            _items.Clear();
         }
 
         public bool Contains(T item)
         {
-            return _films.Contains(item);
+            return _items.Contains(item);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            _films.CopyTo(array, arrayIndex);
+            _items.CopyTo(array, arrayIndex);
         }
 
         public bool Remove(T item)
         {
-            return _films.Remove(item);
+            return _items.Remove(item);
         }
 
         /// <summary>
@@ -70,7 +72,17 @@ namespace LabOneCinema.Collections
         /// <param name="rule">Делегат, определяющий операцию сравнения элементов</param>
         public void Sort(ComparsionRule<T> rule)
         {
-            _films.Sort((first, second) => rule(first, second));
+            _items.Sort((first, second) => rule(first, second));
+        }
+
+        /// <summary>
+        /// Запускает асинхронную сортировку коллекции
+        /// </summary>
+        /// <param name="rule">Делегат, определяющий операцию сравнения элементов</param>
+        /// <param name="progressViever">Метод печати прогресса сортировки</param>
+        public Task StartAsyncSort(ComparsionRule<T> rule, Action<string, double> progressViever)
+        {
+            return _items.HeapSort(rule, progressViever);
         }
 
         /// <summary>
@@ -80,7 +92,7 @@ namespace LabOneCinema.Collections
         /// <returns>Список с результатами применения функции</returns>
         public List<string> GetAnnotation(Func<T, string> function)
         {
-            return _films.Select(function).ToList();
+            return _items.Select(function).ToList();
         }
 
         /// <summary>
@@ -88,13 +100,13 @@ namespace LabOneCinema.Collections
         /// </summary>
         public void ApplyAction(Action<T> action)
         {
-            foreach (var film in _films)
+            foreach (var film in _items)
             {
                 action(film);
             }
         }
 
-        public int Count => _films.Count;
+        public int Count => _items.Count;
         public bool IsReadOnly => false;
     }
 }
