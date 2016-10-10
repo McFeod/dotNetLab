@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using LabOneCinema.Artifacts;
 
 namespace LabOneCinema.Logging
@@ -66,16 +67,24 @@ namespace LabOneCinema.Logging
         /// <param name="film">Фильм, с которым связано событие</param>
         private void HandleNested(object obj, EventType type, EventArgs args, Film film)
         {
-            using (var output = GetOutput())
+            var mutex = new object();
+            new Thread(() =>
             {
-                OnLog(obj, new LogEventArgs()
+                lock (mutex)
                 {
-                    Nested = args,
-                    Type = type,
-                    Output = output,
-                    Sender = film
-                });
+                    using (var output = GetOutput())
+                    {
+                        OnLog(obj, new LogEventArgs()
+                        {
+                            Nested = args,
+                            Type = type,
+                            Output = output,
+                            Sender = film
+                        });
+                    }
+                }
             }
+            ){IsBackground = true}.Start();
         }
     }
 }

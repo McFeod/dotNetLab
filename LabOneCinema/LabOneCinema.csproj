@@ -46,24 +46,24 @@
     <Compile Include="Artifacts\Artifact.cs" />
     <Compile Include="Artifacts\Film.cs" />
     <Compile Include="Artifacts\Scenario.cs" />
+    <Compile Include="Assets\Logging\ExceptionLogger.cs" />
+    <Compile Include="Assets\Logging\FilmLogger.cs" />
+    <Compile Include="Assets\Logging\HiringEventArgs.cs" />
+    <Compile Include="Assets\Logging\LogEventArgs.cs" />
+    <Compile Include="Assets\Logging\Logger.cs" />
+    <Compile Include="Assets\Logging\WorkerEventArgs.cs" />
     <Compile Include="Async\HeapSorter.cs" />
     <Compile Include="Collections\Examples.cs" />
     <Compile Include="Collections\Playlist.cs" />
     <Compile Include="Collections\RandomEnumerator.cs" />
     <Compile Include="Delegates\CompareDelegate.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
+    <Compile Include="Factory\BaseBudgetFilmFactory.cs" />
     <Compile Include="Factory\BaseFilmFactory.cs" />
     <Compile Include="Factory\ConfigFilmFactory.cs" />
-    <Compile Include="Factory\HighBudgetBudgetFilmFactory.cs" />
-    <Compile Include="Factory\BaseBudgetFilmFactory.cs" />
-    <Compile Include="Factory\LowBudgetBudgetFilmFactory.cs" />
+    <Compile Include="Factory\HighBudgetFilmFactory.cs" />
+    <Compile Include="Factory\LowBudgetFilmFactory.cs" />
     <Compile Include="Factory\RandomScenarioFactory.cs" />
-    <Compile Include="Logging\ExceptionLogger.cs" />
-    <Compile Include="Logging\HiringEventArgs.cs" />
-    <Compile Include="Logging\LogEventArgs.cs" />
-    <Compile Include="Logging\FilmLogger.cs" />
-    <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Logging\WorkerEventArgs.cs" />
     <Compile Include="MainHelper.cs" />
     <Compile Include="People\Artist.cs" />
     <Compile Include="People\Boss.cs" />
@@ -87,6 +87,9 @@
     <Content Include="Assets\film_error_2.csv" />
     <Content Include="Assets\film_error_3.csv" />
     <Content Include="description.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Async" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
