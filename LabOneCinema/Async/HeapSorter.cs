@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using LabOneCinema.Delegates;
 
@@ -62,7 +61,7 @@ namespace LabOneCinema.Async
                     }
                     else return;
                 }
-                Thread.Sleep(1);
+//                Thread.Sleep(1);
             });
         }
 

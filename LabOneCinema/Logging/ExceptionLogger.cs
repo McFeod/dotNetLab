@@ -6,6 +6,9 @@ namespace LabOneCinema.Logging
 {
     public class ExceptionLogger: Logger
     {
+        /// <summary>
+        /// Объект для блокировки
+        /// </summary>
         private readonly object _mutex;
         public ExceptionLogger(string path = null) : base(path)
         {

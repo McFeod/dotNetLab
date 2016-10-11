@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Factory;
-using LabOneCinema.Logging;
 using LabOneCinema.Collections;
 
 namespace LabOneCinema
@@ -15,7 +12,7 @@ namespace LabOneCinema
         {
             var scenarioFactory = new RandomScenarioFactory();
             var collection = new Playlist<Scenario>(false);
-            for (var i = 0; i < 1000; ++i)
+            for (var i = 0; i < 10000; ++i)
             {
                 collection.Add(scenarioFactory.MakeScenario());
             }
@@ -32,20 +29,7 @@ namespace LabOneCinema
 
             // Console.WriteLine(string.Join("\n", collection.Select((x) => $"{x.Name}: {x.PageCount}")));
 
-            var logger = new FilmLogger(Path.Combine("..", "..", "films.log"));
-            logger.OnLog += PrintToLog;
-            var factoryHigh = new HighBudgetFilmFactory(logger);
-            var film = factoryHigh.MakeFilm(
-                "Компиляция",
-                "Ушаков Виталий",
-                "Шершова Луиза",
-                "Соколов Вышеслав",
-                "Шалдыбин Степан",
-                "Наумова Юлия",
-                "Лебедев Митофан",
-                "Прокофьев Фрол",
-                "Русина Варвара"
-            );
+            Console.ReadKey();
         }
     }
 }
