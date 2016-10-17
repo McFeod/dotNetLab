@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using LabOneCinema.People;
+using Newtonsoft.Json;
 
 namespace LabOneCinema.Artifacts
 {
     /// <summary>
     /// Собственно, сам фильм
     /// </summary>
+    [Serializable]
     public class Film: Artifact, ICloneable
     {
         /// <summary>
@@ -31,22 +33,22 @@ namespace LabOneCinema.Artifacts
         /// <summary>
         /// Сценарий фильма
         /// </summary>
-        internal Scenario Scenario;
+        public Scenario Scenario;
 
         /// <summary>
         /// Сценарист
         /// </summary>
-        internal Writer Writer;
+        public Writer Writer;
 
         /// <summary>
         /// Режиссёр
         /// </summary>
-        internal Producer Producer;
+        public Producer Producer;
 
         /// <summary>
         /// Актёры
         /// </summary>
-        internal List<Artist> Artists;
+        public List<Artist> Artists;
 
         public Film(string name, Writer writer, Producer producer)
         {
@@ -57,9 +59,12 @@ namespace LabOneCinema.Artifacts
             Scenario = new Scenario(){Name = $"Сценарий к фильму \"{Name}\""};
         }
 
+        private Film(){}
+
         /// <summary>
         /// Возвращает строку с описанием фильма и связанных сущностей
         /// </summary>
+        [JsonIgnore]
         public string Credits => $"Фильм: {Name}\n" +
                                  $"\tДлительность: {Duration} мин.\n" +
                                  $"\tСценарий: {Scenario.PageCount} стр.\n" +

@@ -7,6 +7,7 @@ namespace LabOneCinema.People
     /// <summary>
     /// Класс для сценариста
     /// </summary>
+    [Serializable]
     public class Writer: Person, IWorking<Scenario>, IStartingFromScratch<Scenario>
     {
         /// <summary>
@@ -17,6 +18,8 @@ namespace LabOneCinema.People
         public Writer(string name) : base(name)
         {
         }
+
+        private Writer(){}
 
         /// <summary>
         /// Работа сценариста - написание сценария (увеличение числа страниц)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Async;
 using LabOneCinema.Delegates;
+using Newtonsoft.Json;
 
 namespace LabOneCinema.Collections
 {
@@ -13,8 +14,10 @@ namespace LabOneCinema.Collections
     /// Коллекция фильмов (или других производных от Artifact) на основе List,
     /// но со своим Enumerator-классом
     /// </summary>
+    [Serializable]
     public class Playlist<T> : ICollection<T> where T: Artifact
     {
+        [JsonRequired]
         private readonly List<T> _items;
         private readonly bool _isRandom;
 
@@ -22,12 +25,20 @@ namespace LabOneCinema.Collections
         /// Конструктор, позволяющий создавать плейлисты с перемешиванием и без
         /// </summary>
         /// <param name="isRandom">Нужен ли случайный порядок элементов</param>
-        public Playlist(bool isRandom=true)
+        public Playlist(bool isRandom)
         {
             _items = new List<T>();
             _isRandom = isRandom;
 
         }
+
+        public Playlist(List<T> list, bool isRandom=false)
+        {
+            _items = list;
+            _isRandom = isRandom;
+        }
+
+        public Playlist() : this(false){}
 
         public IEnumerator<T> GetEnumerator()
         {

@@ -5,12 +5,13 @@ namespace LabOneCinema.People
     /// <summary>
     /// Абстрактный класс для человека, участвующего в создании фильма
     /// </summary>
+    [Serializable]
     public abstract class Person
     {
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Гонорар
@@ -23,5 +24,7 @@ namespace LabOneCinema.People
         {
             Name = name;
         }
+
+        protected Person(){}
     }
 }

@@ -5,6 +5,7 @@ namespace LabOneCinema.Artifacts
     /// <summary>
     /// Сценарий фильма
     /// </summary>
+    [Serializable]
     public class Scenario: Artifact
     {
         /// <summary>

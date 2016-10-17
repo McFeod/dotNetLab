@@ -1,35 +1,51 @@
 ﻿using System;
-using System.Threading;
+using System.Collections.Generic;
+using System.IO;
 using LabOneCinema.Artifacts;
-using LabOneCinema.Factory;
-using LabOneCinema.Collections;
+using LabOneCinema.Logging;
+using LabOneCinema.Serialization;
 
 namespace LabOneCinema
 {
-    internal class Program: MainHelper
+    internal class Program : MainHelper
     {
         private static void Main(string[] args)
         {
-            var scenarioFactory = new RandomScenarioFactory();
-            var collection = new Playlist<Scenario>(false);
-            for (var i = 0; i < 10000; ++i)
+            var filesLocation = Path.Combine("e:", "temp");
+            // порядок обращения к файлам
+            var fileOrder = new List<string>
             {
-                collection.Add(scenarioFactory.MakeScenario());
-            }
-            var sortingTask = collection.StartAsyncSort(
-                (first, second) => first.PageCount.CompareTo(second.PageCount),
-                (msg, progress) => Console.WriteLine($"{msg}: {progress*100}%"));
-
-            // пока коллекция сортируется, главный поток спамит в stdout
-            while (!sortingTask.IsCompleted)
+                "films_input.json",
+                "films.xml",
+                "films.bin",
+                "films_output.json"
+            };
+            // порядок вызова сериализаторов
+            var serializers = new List<IPlaylistSerializer<Film>>
             {
-                Thread.Sleep(50);
-                Console.WriteLine("Ready? Ready? Ready? Ready? Ready? Ready? Ready?");
+                new PlaylistJsonSerializer(),
+                new PlaylistXmlSerializer(),
+                new PlaylistBinarySerializer()
+            };
+            var logger = new ExceptionLogger();
+            try
+            {
+                // десериализация/сериализация коллекции "по кольцу"
+                for (var i=1; i<fileOrder.Count; ++i)
+                {
+                    // предыдущий сериализатор десериализует
+                    var collection = serializers[(i-1) % serializers.Count]
+                        .Deserialize(Path.Combine(filesLocation, fileOrder[i-1]));
+                    // текущий сериализует
+                    serializers[i % serializers.Count]
+                        .Serialize(collection, Path.Combine(filesLocation, fileOrder[i]));
+                }
+            }
+            catch (Exception e)
+            {
+                logger.HandleSystemException(e);
             }
 
-            // Console.WriteLine(string.Join("\n", collection.Select((x) => $"{x.Name}: {x.PageCount}")));
-
-            Console.ReadKey();
         }
     }
 }

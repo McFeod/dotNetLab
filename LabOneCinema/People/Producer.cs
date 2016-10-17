@@ -8,6 +8,7 @@ namespace LabOneCinema.People
     /// <summary>
     /// Класс для режиссёра
     /// </summary>
+    [Serializable]
     public class Producer: Person, IWorking<Film>, IHiring<Artist>
     {
         /// <summary>
@@ -29,6 +30,8 @@ namespace LabOneCinema.People
         public Producer(string name) : base(name)
         {
         }
+
+        private Producer(){}
 
         /// <summary>
         /// Режиссёр переключается на работу над заданным фильмом

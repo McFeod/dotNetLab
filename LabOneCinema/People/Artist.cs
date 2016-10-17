@@ -7,6 +7,7 @@ namespace LabOneCinema.People
     /// <summary>
     /// Класс, описывающий актёра
     /// </summary>
+    [Serializable]
     public class Artist: Person, IWorking<Film>
     {
         /// <summary>
@@ -17,6 +18,8 @@ namespace LabOneCinema.People
         public Artist(string name) : base(name)
         {
         }
+
+        private Artist(){}
 
         /// <summary>
         /// Актёр играет в фильме, увеличивая его длительность
