@@ -45,7 +45,7 @@ namespace LabOneCinema
             {
                 logger.HandleSystemException(e);
             }
-
+            Console.WriteLine("Done");
         }
     }
 }

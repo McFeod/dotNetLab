@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 namespace LabOneCinema.Serialization
 {
     /// <summary>
-    /// Сериализация коллекции фильмов в JSON
+    /// Сериализатор коллекции фильмов, использующий JSON формат
     /// </summary>
     public class PlaylistJsonSerializer: IPlaylistSerializer<Film>
     {

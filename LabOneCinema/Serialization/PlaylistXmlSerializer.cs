@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
 using LabOneCinema.Artifacts;
 using LabOneCinema.Collections;
 
 namespace LabOneCinema.Serialization
 {
+    /// <summary>
+    /// Сериализатор коллекции фильмов, использующий XML формат
+    /// </summary>
     public class PlaylistXmlSerializer: IPlaylistSerializer<Film>
     {
         /// <summary>
@@ -39,9 +40,9 @@ namespace LabOneCinema.Serialization
         /// <returns>Коллекция фильмов</returns>
         public Playlist<Film> Deserialize(string inputFile)
         {
-            using (var sr = new StreamReader(inputFile))
+            using (var reader = new StreamReader(inputFile))
             {
-                return (Playlist<Film>)_serializer.Deserialize(sr);
+                return (Playlist<Film>)_serializer.Deserialize(reader);
             }
         }
     }

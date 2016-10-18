@@ -5,6 +5,9 @@ using LabOneCinema.Collections;
 
 namespace LabOneCinema.Serialization
 {
+    /// <summary>
+    /// Сериализатор коллекции фильмов, использующий бинарный формат
+    /// </summary>
     public class PlaylistBinarySerializer:IPlaylistSerializer<Film>
     {
         /// <summary>
