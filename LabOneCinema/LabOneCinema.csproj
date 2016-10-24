@@ -89,15 +89,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="Assets\film_1.csv" />
-    <Content Include="Assets\film_error_1.csv" />
-    <Content Include="Assets\film_error_2.csv" />
-    <Content Include="Assets\film_error_3.csv" />
     <Content Include="description.txt" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets" />
     <Folder Include="Async" />
     <Folder Include="Factory" />
     <Folder Include="Logging" />

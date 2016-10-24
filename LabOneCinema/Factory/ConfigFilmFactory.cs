@@ -87,7 +87,7 @@ namespace LabOneCinema.Factory
         /// <exception cref="StringFormatException">
         /// Исключение, возникающее, когда в строке хранится что-то другое
         /// </exception>
-        private static decimal ParseLine(string line, out string firstPart)
+        protected static decimal ParseLine(string line, out string firstPart)
         {
             var parts = line.Split(';');
             if (parts.Length != 2)

@@ -6,13 +6,8 @@ namespace LabOneCinema.Logging
 {
     public class ExceptionLogger: Logger
     {
-        /// <summary>
-        /// Объект для блокировки
-        /// </summary>
-        private readonly object _mutex;
         public ExceptionLogger(string path = null) : base(path)
         {
-            _mutex = new object();
         }
 
         /// <summary>
@@ -21,16 +16,10 @@ namespace LabOneCinema.Logging
         /// <param name="exception"></param>
         public void HandleSystemException(Exception exception)
         {
-            new Thread(() =>
+            using (var output = GetOutput())
             {
-                lock (_mutex)
-                {
-                    using (var output = GetOutput())
-                    {
-                        output.WriteLine($"{DateTime.Now}: Системное исключение {exception.ToString()}");
-                    }
-                }
-            }){IsBackground = true}.Start();
+                output.WriteLine($"{DateTime.Now}: Системное исключение {exception.ToString()}");
+            }
         }
 
         /// <summary>
@@ -39,16 +28,10 @@ namespace LabOneCinema.Logging
         /// <param name="exception"></param>
         public void HandleCustomException(CustomException exception)
         {
-            new Thread(() =>
+            using (var output = GetOutput())
             {
-                lock (_mutex)
-                {
-                    using (var output = GetOutput())
-                    {
-                        output.WriteLine($"{DateTime.Now}: Пользовательское исключение {exception.ToString()}");
-                    }
-                }
-            }){IsBackground = true}.Start();
+                output.WriteLine($"{DateTime.Now}: Пользовательское исключение {exception.ToString()}");
+            }
         }
     }
 }

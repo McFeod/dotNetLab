@@ -67,24 +67,16 @@ namespace LabOneCinema.Logging
         /// <param name="film">Фильм, с которым связано событие</param>
         private void HandleNested(object obj, EventType type, EventArgs args, Film film)
         {
-            var mutex = new object();
-            new Thread(() =>
+            using (var output = GetOutput())
             {
-                lock (mutex)
+                OnLog(obj, new LogEventArgs()
                 {
-                    using (var output = GetOutput())
-                    {
-                        OnLog(obj, new LogEventArgs()
-                        {
-                            Nested = args,
-                            Type = type,
-                            Output = output,
-                            Sender = film
-                        });
-                    }
-                }
+                    Nested = args,
+                    Type = type,
+                    Output = output,
+                    Sender = film
+                });
             }
-            ){IsBackground = true}.Start();
         }
     }
 }
