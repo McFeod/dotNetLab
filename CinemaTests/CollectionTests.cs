@@ -1,5 +1,4 @@
-﻿using LabOneCinema;
-using LabOneCinema.Collections;
+﻿using CinemaLibrary;
 using Xunit;
 
 namespace CinemaTests

@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using LabOneCinema.Exceptions;
-using LabOneCinema.Factory;
+using CinemaLibrary.Exceptions;
+using CinemaLibrary.Factory;
 using Xunit;
 
 namespace CinemaTests

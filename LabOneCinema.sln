@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabOneCinema", "LabOneCinem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTests", "CinemaTests\CinemaTests.csproj", "{98AA1722-C87E-46D9-9C91-1B7D94E0F93C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaLibrary", "CinemaLibrary\CinemaLibrary.csproj", "{B60A311F-8261-4CC9-A189-FD25F1ECDA9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{98AA1722-C87E-46D9-9C91-1B7D94E0F93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98AA1722-C87E-46D9-9C91-1B7D94E0F93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98AA1722-C87E-46D9-9C91-1B7D94E0F93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60A311F-8261-4CC9-A189-FD25F1ECDA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60A311F-8261-4CC9-A189-FD25F1ECDA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60A311F-8261-4CC9-A189-FD25F1ECDA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60A311F-8261-4CC9-A189-FD25F1ECDA9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

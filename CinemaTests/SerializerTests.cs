@@ -1,8 +1,8 @@
-﻿using LabOneCinema.Artifacts;
-using LabOneCinema.Collections;
-using LabOneCinema.People;
+﻿using CinemaLibrary.Artifacts;
+using CinemaLibrary.Collections;
+using CinemaLibrary.People;
+using CinemaLibrary.Serialization;
 using Xunit;
-using LabOneCinema.Serialization;
 
 namespace CinemaTests
 {

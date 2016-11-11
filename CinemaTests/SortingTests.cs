@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using LabOneCinema.Artifacts;
-using LabOneCinema.Async;
-using LabOneCinema.Collections;
-using LabOneCinema.Delegates;
+using CinemaLibrary.Artifacts;
+using CinemaLibrary.Async;
+using CinemaLibrary.Collections;
+using CinemaLibrary.Delegates;
 using Xunit;
 
 namespace CinemaTests

@@ -1,7 +1,7 @@
-﻿using LabOneCinema.Artifacts;
-using LabOneCinema.Collections;
-using LabOneCinema.Factory;
-using LabOneCinema.Logging;
+﻿using CinemaLibrary.Artifacts;
+using CinemaLibrary.Collections;
+using CinemaLibrary.Factory;
+using CinemaLibrary.Logging;
 
 namespace CinemaTests
 {
