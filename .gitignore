@@ -5,3 +5,4 @@ obj
 *.log
 packages/
 *.bat
+*.nupkg

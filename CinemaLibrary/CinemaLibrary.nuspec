@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SUSU.DotNET.CinemaLibrary</id>
+    <version>0.99-beta</version>
+    <title>$title$</title>
+    <authors>mcfeod</authors>
+    <owners>mcfeod</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>C# project created for educational purposes</description>
+    <releaseNotes>Library contains a couple of classes describing the subject area related to cinema</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Demo Useless</tags>
+  </metadata>
+</package>
