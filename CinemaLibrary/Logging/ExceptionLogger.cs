@@ -3,6 +3,9 @@ using CinemaLibrary.Exceptions;
 
 namespace CinemaLibrary.Logging
 {
+    /// <summary>
+    /// Логгер для исключений
+    /// </summary>
     public class ExceptionLogger: Logger
     {
         public ExceptionLogger(string path = null) : base(path)

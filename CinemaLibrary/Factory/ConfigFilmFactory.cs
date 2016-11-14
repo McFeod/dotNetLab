@@ -7,6 +7,9 @@ using CinemaLibrary.People;
 
 namespace CinemaLibrary.Factory
 {
+    /// <summary>
+    /// Фабрика, выполняющая загрузку фильма из файла кастомного формата
+    /// </summary>
     public class ConfigFilmFactory : BaseFilmFactory
     {
         public ConfigFilmFactory(FilmLogger logger = null) : base(logger)

@@ -2,6 +2,9 @@
 
 namespace CinemaLibrary.Factory
 {
+    /// <summary>
+    /// Базовый класс для фабрик фильмов, поддерживающих логирование
+    /// </summary>
     public abstract class BaseFilmFactory
     {
         /// <summary>

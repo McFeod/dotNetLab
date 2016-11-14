@@ -3,6 +3,9 @@ using System.IO;
 
 namespace CinemaLibrary.Logging
  {
+     /// <summary>
+     /// Базовый класс для логгеров в проекте
+     /// </summary>
      public class Logger
      {
          /// <summary>

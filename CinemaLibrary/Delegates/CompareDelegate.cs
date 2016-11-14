@@ -14,6 +14,9 @@ namespace CinemaLibrary.Delegates
 
     /* Реализуем несколько операций сравнения для фильмов */
 
+    /// <summary>
+    /// Набор делегатов для сравнения фильмов
+    /// </summary>
     public class FilmComparsion
     {
         /// <summary>

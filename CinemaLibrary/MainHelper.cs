@@ -8,6 +8,9 @@ using CinemaLibrary.People;
 
 namespace CinemaLibrary
 {
+    /// <summary>
+    /// Набор функций, которые могут понадобиться в main'е
+    /// </summary>
     public class MainHelper
     {
         private static readonly Random Random = new Random();
