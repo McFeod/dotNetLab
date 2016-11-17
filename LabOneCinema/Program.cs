@@ -1,17 +1,33 @@
 ﻿using System;
-using CinemaLibrary;
-using CinemaLibrary.Factory;
+using System.IO;
+using CinemaLibrary.Logging;
+using CinemaLibrary.Serialization;
 
 namespace LabOneCinema
 {
-    internal class Program : MainHelper
+    internal class Program
     {
-        private static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            var factory = new HighBudgetFilmFactory();
-            var film = factory.MakeFilm(
-                "Пример", "Захаров Евграф", "Ушаков Роман", "Дмитриева Каролина", "Ильин Бернар");
-            Console.WriteLine(film.Credits);
+            var logger = new Logger();
+            PlaylistExtensions.Logger = logger;
+            var serializer = new PlaylistXmlSerializer();
+
+            var playlist = serializer.Deserialize(Path.Combine("..", "..", "films.xml"));
+
+            Console.WriteLine(
+                playlist.Filter(
+                    (x) =>
+                        x.Scenario.PageCount >= 80 &&
+                        x.Scenario.PageCount < 100
+                ).ToPlaylist().ConvertToString()
+            );
+
+            Console.WriteLine(
+                playlist.LongFims().SmallCrewFilms().ConvertToString()
+            );
         }
+
     }
 }

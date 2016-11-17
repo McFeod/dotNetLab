@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFilm xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Film>
+    <Name>Охотники за бургерами</Name>
+    <Scenario>
+      <Name>Сценарий к фильму "Охотники за бургерами"</Name>
+      <PageCount>66</PageCount>
+    </Scenario>
+    <Writer>
+      <Name>Веселков Григорий</Name>
+      <Salary>250000</Salary>
+    </Writer>
+    <Producer>
+      <Name>Чапко Бронислава</Name>
+      <Salary>500000</Salary>
+    </Producer>
+    <Artists>
+      <Artist>
+        <Name>Петров Аристарх</Name>
+        <Salary>380000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Литвина Ева</Name>
+        <Salary>315000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Андронова Амина</Name>
+        <Salary>2000000</Salary>
+      </Artist>
+    </Artists>
+    <Duration>156</Duration>
+  </Film>
+  <Film>
+    <Name>Компиляция</Name>
+    <Scenario>
+      <Name>Сценарий к фильму "Компиляция"</Name>
+      <PageCount>85</PageCount>
+    </Scenario>
+    <Writer>
+      <Name>Шершова Луиза</Name>
+      <Salary>100000</Salary>
+    </Writer>
+    <Producer>
+      <Name>Ушаков Виталий</Name>
+      <Salary>250000</Salary>
+    </Producer>
+    <Artists>
+      <Artist>
+        <Name>Соколов Вышеслав</Name>
+        <Salary>104000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Шалдыбин Степан</Name>
+        <Salary>130000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Наумова Юлия</Name>
+        <Salary>193000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Лебедев Митофан</Name>
+        <Salary>95000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Прокофьев Фрол</Name>
+        <Salary>65000</Salary>
+      </Artist>
+      <Artist>
+        <Name>Русина Варвара</Name>
+        <Salary>180000</Salary>
+      </Artist>
+    </Artists>
+    <Duration>82</Duration>
+  </Film>
+  <Film>
+    <Name>Ржавчина</Name>
+    <Scenario>
+      <Name>Сценарий к фильму "Ржавчина"</Name>
+      <PageCount>45</PageCount>
+    </Scenario>
+    <Writer>
+      <Name>Ушаков Роман</Name>
+      <Salary>20000</Salary>
+    </Writer>
+    <Producer>
+      <Name>Захаров Евграф</Name>
+      <Salary>53000</Salary>
+    </Producer>
+    <Artists>
+      <Artist>
+        <Name>Дмитриева Каролина</Name>
+        <Salary>20500</Salary>
+      </Artist>
+      <Artist>
+        <Name>Ильин Бернар</Name>
+        <Salary>32000</Salary>
+      </Artist>
+    </Artists>
+    <Duration>134</Duration>
+  </Film>
+</ArrayOfFilm>
